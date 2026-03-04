@@ -1,0 +1,478 @@
+/* ══════════════════════════════════════════════════════════════
+   PORTFOLIO DESIGN SYSTEM — CORTIZ.DEV AESTHETIC
+   Dark & God-Tier
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+    --bg-color: #050505;
+    --text-color: #f0f0f0;
+    --text-muted: #555555;
+    
+    --font-heading: 'Bodoni Moda', serif;
+    --font-base: 'Inter', sans-serif;
+
+    --glow-color: rgba(255, 255, 255, 0.6);
+    --glow-spread: 50px;
+    
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────── BACKGROUND VIDEO ─────────────────── */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.3; /* Adjusted to fit the dark god-tier aesthetic */
+}
+
+/* ─────────────────── NOISE OVERLAY ─────────────────── */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+}
+
+/* ─────────────────── NAVBAR ─────────────────── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.logo-text {
+    font-style: italic;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 2px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-color);
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+    transform: translateX(0);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.audio-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.audio-toggle-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: var(--text-color);
+    transition: transform 0.3s;
+}
+
+.menu-btn:hover span:first-child {
+    transform: translateY(2px) rotate(5deg);
+}
+
+.menu-btn:hover span:last-child {
+    transform: translateY(-2px) rotate(-5deg);
+}
+
+/* ─────────────────── HERO SECTION ─────────────────── */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ─────────────────── MARQUEE BACKGROUND ─────────────────── */
+.background-marquee {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10vh 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.marquee-track {
+    display: flex;
+    white-space: nowrap;
+    width: 200vw;
+    font-family: var(--font-base);
+    font-size: 4rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.02);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.marquee-bottom {
+    font-size: 5rem;
+}
+
+/* ─────────────────── HERO CONTENT ─────────────────── */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+}
+
+.hero-text-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 10vw, 12rem);
+    line-height: 0.8;
+}
+
+.text-top {
+    font-style: italic;
+}
+
+.text-bottom {
+    margin-top: -1rem;
+}
+
+.outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    letter-spacing: -0.02em;
+}
+
+.glowing-text {
+    color: #fff;
+    text-shadow: 0 0 40px var(--glow-color), 0 0 80px rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+}
+
+/* ─────────────────── ASCII ART BLOCK (Removed for Video) ─────────────────── */
+.ascii-container {
+    display: none;
+}
+
+/* ─────────────────── SOCIAL BUTTONS ─────────────────── */
+.floating-socials {
+    position: absolute;
+    bottom: 2rem;
+    left: 4rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.social-btn:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    transform: scale(1.1);
+}
+
+/* ─────────────────── RESPONSIVE ─────────────────── */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 1.5rem 2rem;
+    }
+    .nav-links {
+        display: none;
+    }
+    .floating-socials {
+        left: 2rem;
+        bottom: 1.5rem;
+    }
+}
+
+/* ─────────────────── ABOUT SMK SECTION ─────────────────── */
+.about-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 4rem;
+    z-index: 5;
+    background: var(--bg-color);
+}
+
+.about-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-title {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 8vw, 10rem);
+    line-height: 0.85;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 40px var(--glow-color); /* Cool shadow & glow */
+    object-fit: cover;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    font-family: var(--font-base);
+}
+
+.about-desc {
+    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.about-desc .highlight {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+@media (max-width: 1024px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+    .about-title {
+        text-align: center;
+    }
+}
+
+/* ─────────────────── MEMORIES SECTION ─────────────────── */
+.memories-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 2rem;
+    z-index: 5;
+    background: var(--bg-color);
+    overflow: hidden;
+}
+
+.memories-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    z-index: 10;
+}
+
+.memories-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6vw, 8rem);
+    line-height: 1;
+}
+
+.memories-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    margin-top: -0.5rem;
+}
+
+.cards-wrapper {
+    position: relative;
+    width: 260px;
+    height: 380px;
+    perspective: 1000px;
+    margin-top: 2rem;
+}
+
+.memory-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: #111;
+    border: 8px solid #f9f9f9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0,0,0,0.5);
+    overflow: hidden;
+    transform-origin: bottom center;
+    will-change: transform;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.memory-card:hover {
+    box-shadow: 0 0 40px var(--glow-color);
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    filter: grayscale(30%) contrast(1.1);
+    transition: filter 0.3s;
+}
+
+.memory-card:hover img {
+    filter: grayscale(0%) contrast(1);
+}
+
+@media (min-width: 768px) {
+    .cards-wrapper {
+        width: 320px;
+        height: 460px;
+    }
+}
